@@ -21,7 +21,7 @@ int main() {
 }
 ```            
 
-<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 527.6189
+<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 516.81299
 </span>
 ```output                    
 Hello, World!
@@ -64,10 +64,10 @@ int main() {
 }
 ```            
 
-<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 2536.06177
+<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 1218.65625
 </span>
 ```output                    
-Enter a number: You entered: 2
+Enter a number: You entered: 222
 
 ```
 
@@ -95,7 +95,7 @@ int main() {
 1000
 ```
 
-<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 235.04175
+<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 237.25317
 </span>
 ```output                    
 Enter a number: You entered: 1000
@@ -120,7 +120,7 @@ area = calculate_circle_area(radius)
 print(f"Area of circle with radius {radius} is {area}")
 ```            
 
-<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 32.04492
+<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 33.86768
 </span>
 ```output                    
 Area of circle with radius 5 is 78.53981633974483
@@ -145,7 +145,7 @@ area = calculate_circle_area(radius)
 print(f"Area of circle with radius {radius} is {area}")
 ```            
 
-<span style="color: #D73A49; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 26.2749
+<span style="color: #D73A49; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 28.05078
 </span>
 ```output                    
 No Output
@@ -168,7 +168,7 @@ TypeError: can't multiply sequence by non-int of type 'float'
 
 ## Code Block with Multiple Outputs
 
-<codeStart class="nocache timeit" hash="8965f08a226d88ca9815756d0ff302e6e267c449fa13d28c6938e57decbe83d3"/>
+<codeStart class="timeit nocache" hash="8965f08a226d88ca9815756d0ff302e6e267c449fa13d28c6938e57decbe83d3"/>
 
 ```py
 import time
@@ -186,20 +186,20 @@ time_taken = calculate_time()
 print(f"Time taken: {time_taken} seconds")
 ```            
 
-<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 21.9353
+<span style="color:  #28A745; font-weight: bold;">[OUTPUT]:</span> <span style="font-size: small; color: #6A737D;">Time taken (ms): 23.38164
 </span>
 ```output                    
-Time taken: 0.0012640953063964844 seconds
-Time taken: 0.0012547969818115234 seconds
+Time taken: 0.0012569427490234375 seconds
+Time taken: 0.0012540817260742188 seconds
 
 ```
 
 <span style="color:  #28A745; font-weight: bold;">[TIMEIT-RESULTS (ms)]:</span>
 ```timeit
-mean: 21.9353 +/- 0.56514
-std: 0.28257
-max: 22.44897
-min: 21.55493
+mean: 23.38164 +/- 4.34826
+std: 2.17413
+max: 28.84619
+min: 21.81396
 with a total of 10 runs
 ```
 
