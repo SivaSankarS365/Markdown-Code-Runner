@@ -1,10 +1,9 @@
-
-
 # Markdown Code Runner
 
 Markdown Code Runner is a tool designed for processing Markdown files with executable code blocks. It automatically executes these blocks and inserts the output into the Markdown file, making it ideal for note-taking and documentation purposes. This tool supports custom inputs, runtime measurement, and caching mechanisms.
 
 ## Features
+
 ![Parse and run code in markdown files](assets/imgs/demo1.png)
 
 ![Supports custom predefined inputs or inputs from stdio](assets/imgs/demo2.png)
@@ -21,14 +20,15 @@ Markdown Code Runner is a tool designed for processing Markdown files with execu
 Markdown Code Runner supports macOS, Linux, and Windows Subsystem for Linux (WSL).
 
 1. **Install Dependencies**:
+
    - Ensure you have `python3` and `g++` installed.
    - Install Python dependencies:
 
      ```bash
      pip install -r requirements.txt
      ```
-
 2. **Configure Paths**:
+
    - Edit `config.py` to specify the paths for `python3` and `g++`.
 
 ## Definitions
