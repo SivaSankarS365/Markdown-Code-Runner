@@ -5,11 +5,11 @@ with open('README.md', 'r') as f:
 
 long_description = long_description.replace('assets/imgs/demo1.png',"https://github.com/SivaSankarS365/Markdown-code-runner/raw/main/assets/imgs/demo1.png")
 long_description = long_description.replace('assets/imgs/demo2.png',"https://github.com/SivaSankarS365/Markdown-code-runner/raw/main/assets/imgs/demo2.png")
-long_description = long_description.replace('assets/imgs/timeit.png',"https://github.com/SivaSankarS365/Markdown-code-runner/raw/main/assets/imgs/timeit.jpeg")
+long_description = long_description.replace('assets/imgs/timeit.jpeg',"https://github.com/SivaSankarS365/Markdown-code-runner/raw/main/assets/imgs/timeit.jpeg")
 
 setup(
     name='mdcoderunner',
-    version='0.1.2',
+    version='0.3',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
