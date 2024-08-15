@@ -29,13 +29,38 @@ class Executer:
             script = f"{script} < {in_file}"
         return script
     
+    # def _run_script(self, script):
+    #     try:
+    #         result = subprocess.run(script, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,timeout = TIMEOUT)
+    #     except subprocess.CalledProcessError as e:
+    #         result = e
+    #     return result
+
     def _run_script(self, script):
         try:
-            result = subprocess.run(script, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,timeout = TIMEOUT)
+            # Create a pipe for stdout and stderr
+            stdout_pipe = subprocess.PIPE
+            stderr_pipe = subprocess.PIPE
+
+            # Using 'tee' to duplicate the output to both stdout/stderr and the PIPE
+            command = f"({script}) 2>&1 | tee /dev/tty"  # 2>&1 redirects stderr to stdout
+            process = subprocess.Popen(command, shell=True, stdout=stdout_pipe, stderr=stderr_pipe, stdin=None)
+
+            stdout, stderr = process.communicate(timeout=TIMEOUT)
+
+            # Return the result as if it were from `subprocess.run`
+            return subprocess.CompletedProcess(
+                args=script,
+                returncode=process.returncode,
+                stdout=stdout,
+                stderr=stderr
+            )
         except subprocess.CalledProcessError as e:
-            result = e
-        return result
-    
+            return e
+        except subprocess.TimeoutExpired as e:
+            process.kill()
+            return e
+
     def timeit(self, script, passthrough=False):
         times = []
         for _ in range(NRUNS_TIMEIT):
