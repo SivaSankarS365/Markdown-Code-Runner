@@ -17,7 +17,7 @@ long_description = long_description.replace('assets/imgs/timeit.jpeg',"https://g
 
 setup(
     name='mdcoderunner',
-    version='1.0.0',
+    version='1.0.1',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
