@@ -1,4 +1,5 @@
 from .imports import *
+import shutil
 
 def get_hash(block):
     text = block['code'] + ' '.join(block['input'])
@@ -20,3 +21,13 @@ def test_cache_hit(block):
 
 def remove_excess_newlines(text):
     return re.sub(r'\n{3,}', '\n\n', text)
+
+
+
+def check_bash_availability():
+    bash_path = shutil.which("bash")
+    if bash_path:
+        return True
+    else:
+        print("Bash is not available on this system. Using default!")
+        return False

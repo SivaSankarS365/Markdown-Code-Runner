@@ -41,18 +41,19 @@ int main() {
 
 <codeEnd/>
 
-## C Code Example with Input from stdio (terminal), nocache to prevent caching
+## C++ Code Example with Input from stdio (terminal), nocache to prevent caching
 
 <codeStart class="nocache" />
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
 
 int main() {
+    std::ios::sync_with_stdio(false); // Disable synchronization with C standard streams
     int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    printf("You entered: %d\n", num);
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "You entered: " << num << std::endl;
     return 0;
 }
 ```            

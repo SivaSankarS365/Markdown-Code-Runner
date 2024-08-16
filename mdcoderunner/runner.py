@@ -2,6 +2,7 @@ import math
 from .imports import *
 from .config import *
 from .utils import get_hash, test_cache_hit
+from .utils import check_bash_availability
 
 class Executer:
     def __init__(self):
@@ -42,12 +43,20 @@ class Executer:
             stdout_pipe = subprocess.PIPE
             stderr_pipe = subprocess.PIPE
 
-            # Using 'tee' to duplicate the output to both stdout/stderr and the PIPE
-            command = f"({script}) 2>&1 | tee /dev/tty"  # 2>&1 redirects stderr to stdout
-            process = subprocess.Popen(command, shell=True, stdout=stdout_pipe, stderr=stderr_pipe, stdin=None)
+            if check_bash_availability():
+                command = f"bash -c '{{ {script}; }} > >(tee /dev/tty) 2> >(tee /dev/tty >&2)'"
+            else:
+                command = f"{script} 2>&1 | tee /dev/tty"
+            
+            process = subprocess.Popen(command, 
+                                       shell=True, 
+                                       stdout=stdout_pipe, 
+                                       stderr=stderr_pipe, 
+                                       stdin=None,
+                                       bufsize=0)
 
             stdout, stderr = process.communicate(timeout=TIMEOUT)
-
+            
             # Return the result as if it were from `subprocess.run`
             return subprocess.CompletedProcess(
                 args=script,
@@ -60,6 +69,8 @@ class Executer:
         except subprocess.TimeoutExpired as e:
             process.kill()
             return e
+        
+  
 
     def timeit(self, script, passthrough=False):
         times = []

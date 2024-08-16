@@ -19,17 +19,83 @@ Markdown Code Runner is a tool designed for processing Markdown files with execu
 
 Markdown Code Runner supports macOS, Linux, and Windows Subsystem for Linux (WSL).
 
-1. **Install Dependencies**:
+### 1. **Install Dependencies**
 
-   - Ensure you have `python3` and `g++` installed.
-   - Install Python dependencies:
+Ensure that you have `python3`, `pip`, and `g++` installed. If not, follow the instructions below for your platform:
 
-     ```bash
-     pip install -r requirements.txt
-     ```
-2. **Configure Paths**:
+#### **On macOS:**
 
-   - Edit `config.py` to specify the paths for `python3` and `g++`.
+1. **Install Homebrew** (if you don’t have it):
+
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. **Install `python3` and `g++`**:
+
+   ```bash
+   brew install python
+   brew install gcc
+   ```
+
+3. **Install `pip`** (if not already installed):
+
+   ```bash
+   python3 -m ensurepip --upgrade
+   ```
+
+#### **On Linux (Debian/Ubuntu):**
+
+1. **Update package lists**:
+
+   ```bash
+   sudo apt-get update
+   ```
+
+2. **Install `python3`, `pip`, and `g++`**:
+
+   ```bash
+   sudo apt-get install -y python3 python3-pip g++
+   ```
+
+#### **On Windows Subsystem for Linux (WSL):**
+
+1. **Update package lists**:
+
+   ```bash
+   sudo apt-get update
+   ```
+
+2. **Install `python3`, `pip`, and `g++`**:
+
+   ```bash
+   sudo apt-get install -y python3 python3-pip g++
+   ```
+
+### 2. **Install the Markdown Code Runner Package**
+
+After installing the dependencies, install the Markdown Code Runner package via `pip`:
+
+```bash
+pip install mdcoderunner
+```
+
+### 3. **Configure Paths**
+
+You may need to specify the paths for `python3` and `g++` in the configuration:
+
+1. **Edit `config.py`** (located in the package directory) to specify the paths:
+
+   ```python
+   # config.py
+
+   PYTHON_LOCATION = 'python3'  # Adjust this path if necessary
+   GPP_LOCATION = 'g++'          # Adjust this path if necessary
+   ```
+
+   - Replace the paths with the correct locations of `python3` and `g++` on your system.
+   - On macOS and Linux, you can typically find the paths using `which python3` and `which g++`.
+
 
 ## Definitions
 
@@ -117,11 +183,11 @@ optional arguments:
 To process a Markdown file, run the following commands:
 
 ```bash
-python3 mdcoderunner.py ./assets/hello_world.md ./assets/hello_world_rendered.md
+mdcoderunner ./assets/hello_world.md ./assets/hello_world_rendered.md
 ```
 
 ```bash
-python3 mdcoderunner.py ./assets/demo.md ./assets/demo_rendered.md
+mdcoderunner ./assets/demo.md ./assets/demo_rendered.md
 ```
 
 ## Inspiration

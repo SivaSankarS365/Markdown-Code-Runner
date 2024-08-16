@@ -1,4 +1,12 @@
 from setuptools import setup, find_packages
+from setuptools.command.install import install
+import subprocess
+
+class PostInstallCommand(install):
+    """Post-installation for installation mode."""
+    def run(self):
+        install.run(self)
+        subprocess.call(['python3', 'post_install.py'])
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -9,18 +17,18 @@ long_description = long_description.replace('assets/imgs/timeit.jpeg',"https://g
 
 setup(
     name='mdcoderunner',
-    version='0.3.1',
+    version='1.0.0',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'jinja2==3.1.2',
+        'jinja2==3.1.3',
     ],
     entry_points={
         'console_scripts': ['mdcoderunner=mdcoderunner.api:main'],
     },
     author='Siva Sankar Sajeev',
     author_email='sivasankars365@gmail.com',
-    description='A tool for preparing for technical interviews, particularly for learning Data Structures and Algorithms (DSA).',
+    description='A tool for running code blocks in Markdown files.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/SivaSankarS365/Markdown-code-runner',
@@ -35,4 +43,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
+     cmdclass={
+        'install': PostInstallCommand,
+    },
 )
