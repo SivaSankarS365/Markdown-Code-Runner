@@ -15,6 +15,8 @@ Markdown Code Runner is a tool designed for processing Markdown files with execu
 - **Runtime Measurement**: Measures and displays runtime statistics for code blocks.
 - **Cache Control**: Allows selective caching of outputs to avoid rerunning code blocks unnecessarily.
 
+> Supported Langauges: `C,C++,Python`
+
 ## Installation
 
 Markdown Code Runner supports macOS, Linux, and Windows Subsystem for Linux (WSL).
@@ -192,7 +194,7 @@ mdcoderunner ./assets/demo.md ./assets/demo_rendered.md
 
 ## Inspiration
 
-Markdown Code Runner was developed as a tool for preparing for technical interviews, particularly for learning Data Structures and Algorithms (DSA). The goal was to create a lightweight, non-interactive alternative to Jupyter notebooks, enabling seamless note-taking and code execution within Markdown files. This project was built in a single day of focused development.
+Markdown Code Runner was developed as a tool for preparing for technical interviews, particularly for learning Data Structures and Algorithms (DSA). The goal was to create a lightweight, non-interactive alternative to Jupyter notebooks, enabling seamless note-taking and code execution within Markdown files. This project was built in a single day of focused development. This project supports C, C++ and Python code execution from the same markdown file!
 
 ## License
 
